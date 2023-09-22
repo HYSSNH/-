@@ -161,48 +161,16 @@ void Widget::reverseplayer()
 {
     playerlist->reversePrint();
 
-//    model->setItem(0, 0, new QStandardItem(QString(playerlist->getItem(0).name)));
-//    model->setItem(0, 1, new QStandardItem(QString("%1").arg(playerlist->getItem(0).number)));
-//    model->setItem(0, 2, new QStandardItem(QString(playerlist->getItem(0).age)));
-//    model->setItem(0, 3, new QStandardItem(QString(playerlist->getItem(0).starts)));
-
-
-    /* 加载共length行数据，并每行有4列数据 */
-//    qDebug()<<playerlist->getLength()<<"head";
-//    for (int i = playerlist->getLength()-1; i >= 0; i--)
+    /* 加载数据 */
     for (int i = 0; i < playerlist->getLength(); i++)
     {
-//        int index = playerlist->getLength() - i ;
-//        if(index != 5)
-//        {
-//           {
-//                /* 加载数据 */
-//                model->setItem(index, 0, new QStandardItem(QString(playerlist->getItem(index+1).name)));
-//                model->setItem(index, 1, new QStandardItem(QString("%1").arg(playerlist->getItem(index+1).number)));
-//                model->setItem(index, 2, new QStandardItem(QString(playerlist->getItem(index+1).age)));
-//                model->setItem(index, 3, new QStandardItem(QString(playerlist->getItem(index+1).starts)));
-//           }/*
-        /* 加载数据 */
         model->setItem(i, 0, new QStandardItem(QString(playerlist->getItem(i+1).name)));
         model->setItem(i, 1, new QStandardItem(QString("%1").arg(playerlist->getItem(i+1).number)));
         model->setItem(i, 2, new QStandardItem(QString(playerlist->getItem(i+1).age)));
         model->setItem(i, 3, new QStandardItem(QString(playerlist->getItem(i+1).starts)));
 
-//        qDebug()<<playerlist->getItem(0).name;
-//        qDebug()<<playerlist->getItem(1).name;
-//        qDebug()<<playerlist->getItem(2).name;
-//        qDebug()<<playerlist->getItem(3).name;
-//        qDebug()<<playerlist->getItem(4).name;
-//        qDebug()<<playerlist->getItem(5).name;
-//        else
-//        {
-//                model->setItem(4, 0, new QStandardItem(QString(playerlist->getItem(5).name)));
-//                model->setItem(4, 1, new QStandardItem(QString("%1").arg(playerlist->getItem(5).number)));
-//                model->setItem(4, 2, new QStandardItem(QString(playerlist->getItem(5).age)));
-//                model->setItem(4, 3, new QStandardItem(QString(playerlist->getItem(5).starts)));
-//        }
     }
-//    qDebug()<<playerlist->getLength()<<"rear";
+
 }
 
 
