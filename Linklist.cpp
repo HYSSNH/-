@@ -160,10 +160,9 @@ void  Linklist<Element>:: reversePrint()
 {
     // 逆序输出
     Node<Element>* reverseHead = nullptr;//1. 定义一个反转后的新链表头指针reverseHead,初始化为nullptr
-    int len = getLength(); // 获取原链表长度
-    int i = 0;
 
-//    qDebug()<<head->data.name;
+    Node<Element>* trueHead = head;
+    Node<Element>* beforeLast;
 
     while (head != nullptr)//2. 通过while循环遍历原链表,每次循环中:
     {
@@ -174,48 +173,20 @@ void  Linklist<Element>:: reversePrint()
       reverseHead = temp;//(4) 然后将tmp作为新的链表头
 
       qDebug()<<temp->data.name;
-
-      i++;
-          if (i == len)
-          {
-            reverseHead = temp;
-            temp->next = nullptr;
-            break;
-          }
     }
     head = reverseHead;//3. 遍历结束后,将原链表头head指向反转后的新链表头reverseHead
 
-    qDebug()<<head->data.name;
+    //将原头节点接到反转后的新链表
+    int i = getLength()-1;
+    while(i--)
+    {
+        head = head->next;
+    }
+    beforeLast = head;
+
+    beforeLast->next = nullptr;
+    trueHead->next = reverseHead;
+    reverseHead = trueHead;
+
+    head = reverseHead;
 }
-
-
-//    // 保存反转后链表的头节点
-//      Node<Element>* newHead = reverseHead;
-//      // 找到反转后链表的下一个节点
-//      Node<Element>* nextNode = newHead->next;
-//      // 原链表头指针指向反转链表的下一个节点
-//      head = nextNode;
-//      // 断开反转链表头节点的next指针
-//      newHead->next = nullptr;
-
-
-//template <class Element>
-//void Linklist<Element>::reversePrint()
-//{
-//  Node<Element>* reverseHead = nullptr;
-
-//  while (head != nullptr)
-//  {
-//    Node<Element>* tmp = nullptr;
-//    // 特殊判断尾节点
-//    if (head->next == nullptr) tmp = head;
-//    else
-//    {
-//      tmp = head;
-//      head = head->next;
-//    }
-//    tmp->next = reverseHead;
-//    reverseHead = tmp;
-//  }
-//  head = reverseHead;
-//}
